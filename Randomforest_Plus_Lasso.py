@@ -128,7 +128,7 @@ lasso_daily=Lasso(normalize=True,alpha=0.00001)
 lasso_daily.fit(T1_train, T1_daily_lable)
 lasso_daily_MAE=Weighted_averege_MAE(lasso_daily.predict(T1_test),\
                                   T1_daily_true.as_matrix(),T1_daily_weight[cut:])
-
+'''
 #Logistic regression
 logic_intra=LogisticRegression()
 logic_intra.fit(T1_train, T1_intra_lable, T1_intra_weight[:cut])
@@ -139,7 +139,7 @@ logic_daily=LogisticRegression()
 logic_daily.fit(T1_train, T1_daily_lable)
 logic_daily_MAE=Weighted_averege_MAE(logic_daily.predict(T1_test),\
                                   T1_daily_true.as_matrix(),T1_daily_weight[cut:])
-
+'''
 #Random forest
 #Parameter seleceted from experiment; I finally choose depth=25 (30) for intraday (daily)
 def Best_RF_Model_Intra(T1_train,T1_intra_lable,T1_intra_weight,\
@@ -360,7 +360,7 @@ rf_intra_T2=RandomForestRegressor(criterion='mse', \
                                min_samples_split=5,max_depth=25)
 rf_intra_T2.fit(T1_feature,T1_value_intra,T1_intra_weight)
 Pre_rf_intra=rf_intra_T2.predict(T2_feature)
-Pre_intra=0.87*Pre_lasso_intra+0.13*Pre_rf_intra
+Pre_intra=0.87*Pre_rf_intra+0.13*Pre_lasso_intra
 
 #daily prediction using random forest (depth=30)
 rf_daily_T2=RandomForestRegressor(criterion='mse', \
