@@ -355,6 +355,9 @@ T2_feature=test2.iloc[:,1:150]
 T1_value_intra=T1_value.iloc[:,:60]
 T1_value_daily=T1_value.iloc[:,60:]
 
+scl=MinMaxScaler()
+scl.fit(T2_feature)
+T2_feature=pd.DataFrame(scl.transform(T2_feature),columns=T2_feature.columns)
 
 #Intra day prediction 0.87 random forest (depth=25) + 0.13 Lasso
 lasso_intra_T2=Lasso(normalize=True,alpha=0.00001)
