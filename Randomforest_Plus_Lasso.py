@@ -311,7 +311,7 @@ Predict_rf=rf_intra.predict(T1_test)
 Predict_lasso=lasso_intra.predict(T1_test)
 
 def Best_Model_Weight(T1_test,T1_intra_true,T1_intra_weight,cut,Predict_rf,Predict_lasso):
-    weight_rf=np.arange(0.0, 1.1, 0.01)
+    weight_rf=np.arange(0.0, 1.01, 0.01)
     MAE=100000
     Best_Weight_rf=0
     for w in weight_rf:
@@ -330,7 +330,7 @@ Best_rf=Best_Model_Weight(T1_test,T1_intra_true,T1_intra_weight,cut,Predict_rf,P
 # weight of ramdon forest for daily return is 1
 '''
 def Best_Model_Weight(T1_test,T1_daily_true,T1_daily_weight,cut,Predict_rf,Predict_lasso):
-    weight_rf=np.arange(0.0, 1.1, 0.01)
+    weight_rf=np.arange(0.0, 1.01, 0.01)
     MAE=100000
     Best_Weight_rf=0
 
