@@ -72,6 +72,10 @@ T1_value=train2.iloc[:,139:201]
 T1_intra_weight=train2.loc[:,'Weight_Intraday']
 T1_daily_weight=train2.loc[:,'Weight_Daily']
 
+scl=MinMaxScaler()
+scl.fit(T2_feature)
+T2_feature=pd.DataFrame(scl.transform(T2_feature),columns=T2_feature.columns)
+
 #scale the feature using min-max method
 scl=MinMaxScaler()
 scl.fit(T1_feature)
