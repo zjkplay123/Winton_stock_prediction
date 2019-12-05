@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Nov 27 18:20:03 2019
-
 @author: Jinkai Zhang
 """
 
